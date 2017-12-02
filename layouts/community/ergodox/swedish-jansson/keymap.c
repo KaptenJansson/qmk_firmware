@@ -54,8 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
 // Otherwise, it needs KC_*
 [BASE] = LAYOUT_ergodox(  // layer 0 : default
-    // left hand
-    // Align first letter of the longest button command and align all columns after that.
+    // left handm
     KC_ESC,           KC_1,    KC_2,          KC_3,    KC_4,    KC_5, KC_LEFT,
     KC_DELT,          KC_Q,    KC_W,          KC_E,    KC_R,    KC_T, KC_FN2,
     KC_LCTL,          KC_A,    KC_S,          KC_D,    KC_F,    KC_G,
@@ -119,7 +118,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 /* Keymap 2: Gaming Layer
- * Left side is change to accomedate most games, right side is untouched so typing in chat is still possible.
+ * Left side is changed to accomedate most games, right side is untouched so typing in chat is still possible.
+ * Scrl lock is used for push to talk in voice chat apps.
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * | Esc    |   !  |  "   |  #   |  #   |  %   |  &   |           | RIGHT|   &  |  /   |  (   |  )   |  =   |  ?     |
  * |        |   1  |  2 @ |  3 £ |  4 $ |  5   |  6   |           |      |   6  |  7 { |  8 [ |  9 ] |  0 } |  + \   |
@@ -133,8 +133,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Left   |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ;  |   :  |_/Ctrl| RShift |
  * | Shift  |      |      |      |      |      |      |           |      |      |      |   ,  |   .  |-     |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | Scrl |  `   | Enter| Left | Right|                                       |  Up  | Down |  ^   |  *   | ~L1  |
- *   | Lock |  '   |      |      |      |                                       |      |      |      |      |      |
+ *   | Scrl |  Alt | Enter| Left | Right|                                       |  Up  | Down |  ^   |  *   | ~L1  |
+ *   | Lock |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,---------------.
  *                                        |  F1  |  F2  |       | AltGr|Ctrl/Esc|
@@ -150,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,          KC_E,    KC_R,    KC_T, KC_M,
     KC_LCTL, KC_A,    KC_S,          KC_D,    KC_F,    KC_G,
     KC_LSFT, KC_Z,    KC_X,          KC_C,    KC_V,    KC_B, KC_I,
-    KC_SLCK, NO_ACUT, KC_ENT,        KC_LEFT, KC_RGHT,
+    KC_SLCK, KC_LALT, KC_ENT,        KC_LEFT, KC_RGHT,
                                                                KC_F1,   KC_F2,
                                                                         KC_F3,
                                                        KC_SPC, KC_BSPC, KC_F4,
