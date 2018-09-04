@@ -17,11 +17,9 @@
 #ifndef CONFIG_USER_H
 #define CONFIG_USER_H
 
-#include "config_common.h"
+#include "../../config.h"
 
 // place overrides here
 #define GRAVE_ESC_CTRL_OVERRIDE
-#define BACKLIGHT_BREATHING
-#define BREATHING_PERIOD 8
 
 #endif

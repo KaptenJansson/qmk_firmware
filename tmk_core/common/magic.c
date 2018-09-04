@@ -14,10 +14,6 @@
 
 keymap_config_t keymap_config;
 
-/** \brief Magic
- *
- * FIXME: Needs doc
- */
 void magic(void)
 {
     /* check signature */

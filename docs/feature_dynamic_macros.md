@@ -1,13 +1,13 @@
-# Dynamic Macros: Record and Replay Macros in Runtime
+# Dynamic macros: record and replay macros in runtime
 
 QMK supports temporary macros created on the fly. We call these Dynamic Macros. They are defined by the user from the keyboard and are lost when the keyboard is unplugged or otherwise rebooted.
 
 You can store one or two macros and they may have a combined total of 128 keypresses. You can increase this size at the cost of RAM.
 
-To enable them, first add a new element to the end of your `keycodes` enum — `DYNAMIC_MACRO_RANGE`:
+To enable them, first add a new element to the `planck_keycodes` enum — `DYNAMIC_MACRO_RANGE`:
 
 ```c
-enum keycodes {
+enum planck_keycodes {
 	QWERTY = SAFE_RANGE,
 	COLEMAK,
 	DVORAK,
@@ -20,7 +20,7 @@ enum keycodes {
 };
 ```
 
-Your `keycodes` enum may have a slightly different name. You must add `DYNAMIC_MACRO_RANGE` as the last element because `dynamic_macros.h` will add some more keycodes after it.
+It must be the last element because `dynamic_macros.h` will add some more keycodes after it.
 
 Below it, include the `dynamic_macro.h` header:
 
@@ -52,7 +52,7 @@ For users of the earlier versions of dynamic macros: It is still possible to fin
 
 ```c
 	uint16_t macro_kc = (keycode == MO(_DYN) ? DYN_REC_STOP : keycode);
-
+	
 	if (!process_record_dynamic_macro(macro_kc, record)) {
 		return false;
 	}

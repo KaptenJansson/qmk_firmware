@@ -2,14 +2,14 @@
 #define CONFIG_USER_H
 
 #include "../../config.h"
-#include "dudeofawesome.h"
+
+#define WORKMAN_SOUND COLEMAK_SOUND
 
 #ifdef AUDIO_ENABLE
     #define STARTUP_SONG SONG(PLANCK_SOUND)
     // #define STARTUP_SONG SONG(NO_SOUND)
 
     #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
-                                  SONG(WORKMAN_SOUND), \
                                   SONG(COLEMAK_SOUND), \
                                   SONG(DVORAK_SOUND) \
                                 }
@@ -40,5 +40,9 @@
 
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 //#define MIDI_TONE_KEYCODE_OCTAVES 2
+
+#define RGB_DI_PIN B2     // The pin the LED strip is connected to (PB2 by default)
+#define RGBLED_NUM 3      // Number of LEDs in your strip
+#define RGBLIGHT_ANIMATIONS
 
 #endif

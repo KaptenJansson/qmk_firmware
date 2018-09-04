@@ -23,7 +23,6 @@ quantum/version.h
 .idea/
 CMakeLists.txt
 cmake-build-debug
-doxygen/
 .DS_STORE
 /util/wsl_downloaded
 /util/win_downloaded
@@ -43,7 +42,6 @@ doxygen/
 .project
 .settings/
 .idea
-*.iml
 .browse.VC.db*
 *.stackdump
 util/Win_Check_Output.txt
@@ -54,7 +52,6 @@ util/Win_Check_Output.txt
 .vscode/last.sql
 .vscode/temp.sql
 .stfolder
-.tags
 
 # ignore image files
 *.png

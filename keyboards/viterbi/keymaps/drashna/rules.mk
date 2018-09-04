@@ -1,25 +1,12 @@
-BOOTMAGIC_ENABLE  = no       # Virtual DIP switch configuration(+1000)
-MOUSEKEY_ENABLE   = no       # Mouse keys(+4700)
-EXTRAKEY_ENABLE   = yes       # Audio control and System control(+450)
-CONSOLE_ENABLE    = no         # Console for debug(+400)
-COMMAND_ENABLE    = no        # Commands for debug and configuration
-TAP_DANCE_ENABLE  = no
+CONSOLE_ENABLE    = no
+COMMAND_ENABLE    = no  # Commands for debug and configuration
+TAP_DANCE_ENABLE  = yes
 RGBLIGHT_ENABLE   = yes
-AUDIO_ENABLE      = yes
+MOUSEKEY_ENABLE   = no
 NKRO_ENABLE       = yes
 
-NO_SECRETS        = yes
-MACROS_ENABLED    = yes
-INDICATOR_LIGHTS  = no
-RGBLIGHT_TWINKLE  = no
+EXTRAFLAGS        = -flto
 
-LAYOUTS = ortho_5x7
-
-# SRC := $(filter-out serial.c matrix.c i2c.c split_util.c,$(SRC))
-# SRC := $(filter-out serial.c,$(SRC))
-# SRC := $(filter-out matrix.c,$(SRC))
-# SRC := $(filter-out i2c.c,$(SRC))
-# SRC := $(filter-out split_util.c,$(SRC))
-# SRC += quantum/matrix.c
-
-BOOTLOADER        = qmk-dfu
+ifndef QUANTUM_DIR
+	include ../../../../Makefile
+endif

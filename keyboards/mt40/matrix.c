@@ -19,7 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <util/delay.h>
 
 #include "matrix.h"
-#include "config.h"
 
 #ifndef DEBOUNCE
 #   define DEBOUNCE	5
@@ -29,26 +28,6 @@ static uint8_t debouncing = DEBOUNCE;
 
 static matrix_row_t matrix[MATRIX_ROWS];
 static matrix_row_t matrix_debouncing[MATRIX_ROWS];
-
-__attribute__ ((weak))
-void matrix_init_kb(void) {
-    matrix_init_user();
-}
-
-__attribute__ ((weak))
-void matrix_scan_kb(void) {
-    matrix_scan_user();
-}
-
-__attribute__ ((weak))
-void matrix_init_user(void) {
-}
-
-__attribute__ ((weak))
-void matrix_scan_user(void) {
-}
-
-
 
 void matrix_init(void) {
     // all outputs for rows high
@@ -68,7 +47,6 @@ void matrix_init(void) {
         matrix[row] = 0x00;
         matrix_debouncing[row] = 0x00;
     }
-    matrix_init_kb();
 }
 
 void matrix_set_row_status(uint8_t row) {
@@ -115,7 +93,7 @@ uint8_t matrix_scan(void) {
         }
     }
 
-    matrix_scan_kb();
+    matrix_scan_user();
 
     return 1;
 }

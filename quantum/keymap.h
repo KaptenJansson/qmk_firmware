@@ -23,9 +23,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "action.h"
 #if defined(__AVR__)
 #include <avr/pgmspace.h>
-#elif defined PROTOCOL_CHIBIOS
-//We need to ensure that chibios is include before redefining reset
-#include "ch.h"
 #endif
 #include "keycode.h"
 #include "action_macro.h"

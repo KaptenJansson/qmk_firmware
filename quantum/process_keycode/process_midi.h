@@ -27,8 +27,6 @@ void process_midi_basic_noteoff(uint8_t note);
 void process_midi_all_notes_off(void);
 #endif
 
-void midi_task(void);
-
 #ifdef MIDI_ADVANCED
 typedef union {
   uint32_t raw;
@@ -41,9 +39,10 @@ typedef union {
   };
 } midi_config_t;
 
-extern midi_config_t midi_config;
+midi_config_t midi_config;
 
 void midi_init(void);
+void midi_task(void);
 bool process_midi(uint16_t keycode, keyrecord_t *record);
 
 #define MIDI_INVALID_NOTE 0xFF

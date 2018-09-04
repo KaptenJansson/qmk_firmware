@@ -69,5 +69,3 @@ FAUXCLICKY_ENABLE = no      # Use buzzer to emulate clicky switches
 
 CUSTOM_MATRIX = yes
 SRC += matrix.c
-
-LAYOUTS = fullsize_ansi

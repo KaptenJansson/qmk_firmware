@@ -1,5 +1,5 @@
 /*
-Copyright 2017 Danny Nguyen <danny@keeb.io>
+Copyright 2017 Danny Nguyen <danny@hexwire.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,7 +15,10 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#pragma once
+#ifndef CONFIG_USER_H
+#define CONFIG_USER_H
+
+#include "config_common.h"
 
 /* Use I2C or Serial, not both */
 
@@ -34,3 +37,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
+
+#endif

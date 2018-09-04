@@ -41,12 +41,6 @@
 #ifdef VISUALIZER_ENABLE
 #include "visualizer/visualizer.h"
 #endif
-#ifdef MIDI_ENABLE
-#include "qmk_midi.h"
-#endif
-#ifdef STM32F303xC
-#include "eeprom_stm32.h"
-#endif
 #include "suspend.h"
 #include "wait.h"
 
@@ -71,17 +65,6 @@ host_driver_t chibios_driver = {
   send_consumer
 };
 
-#ifdef VIRTSER_ENABLE
-void virtser_task(void);
-#endif
-
-#ifdef RAW_HID_ENABLE
-void raw_hid_task(void);
-#endif
-
-#ifdef CONSOLE_ENABLE
-void console_task(void);
-#endif
 
 /* TESTING
  * Amber LED blinker thread, times are in milliseconds.
@@ -112,10 +95,6 @@ int main(void) {
   halInit();
   chSysInit();
 
-#ifdef STM32F303xC
-  EEPROM_init();
-#endif
-
   // TESTING
   // chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
 
@@ -124,10 +103,6 @@ int main(void) {
 
   /* init printf */
   init_printf(NULL,sendchar_pf);
-
-#ifdef MIDI_ENABLE
-  setup_midi();
-#endif
 
 #ifdef SERIAL_LINK_ENABLE
   init_serial_link();
@@ -190,8 +165,8 @@ int main(void) {
 #endif
         suspend_power_down(); // on AVR this deep sleeps for 15ms
         /* Remote wakeup */
-        if(suspend_wakeup_condition()) {
-          usbWakeupHost(&USB_DRIVER);
+        if((USB_DRIVER.status & 2) && suspend_wakeup_condition()) {
+          send_remote_wakeup(&USB_DRIVER);
         }
       }
       /* Woken up */
@@ -207,14 +182,5 @@ int main(void) {
     }
 
     keyboard_task();
-#ifdef CONSOLE_ENABLE
-    console_task();
-#endif
-#ifdef VIRTSER_ENABLE
-    virtser_task();
-#endif
-#ifdef RAW_HID_ENABLE
-    raw_hid_task();
-#endif
   }
 }

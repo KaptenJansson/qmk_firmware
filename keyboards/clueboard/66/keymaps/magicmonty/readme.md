@@ -41,7 +41,7 @@ Here one can control the behavior of the RGB underlight.
 
 The different layers are signalled throug setting of the underlight:
 
-- Base layer: Light Blue
+- Base layer: White
 - Function layer: Yellow
 - Media layer: Green
 - Mouse layer: Blue

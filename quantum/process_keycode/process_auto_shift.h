@@ -25,9 +25,4 @@
 
 bool process_auto_shift(uint16_t keycode, keyrecord_t *record);
 
-void autoshift_enable(void);
-void autoshift_disable(void);
-void autoshift_toggle(void);
-bool autoshift_state(void);
-
 #endif

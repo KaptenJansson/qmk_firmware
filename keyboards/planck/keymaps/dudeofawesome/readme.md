@@ -1,17 +1,17 @@
 # DudeOfAwesome's Planck Layout
 
-![Planck Layout](https://i.imgur.com/mOc2Sbd.png)
+A basic Planck layout with simultaneous RGB and audio support.
+
+![Planck Layout](https://i.imgur.com/2p1TEEH.png)
 
 ## Features
 
 - Base Layers
-    - QWERTY
-    - Workman
-    - Dvorak
-    - Colemak
-- Numpad layer
-    ![numpad layer](https://i.imgur.com/PQENcut.png)
+  - QWERTY
+  - Workman
+  - Dvorak
 - Audio
+- WS2812b RGB backlight
 
 ## Building and flashing
 

@@ -47,10 +47,8 @@ void matrix_init(void)
     palSetPadMode(GPIOC, 10, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOC, 11, PAL_MODE_OUTPUT_PUSHPULL);
 
-    memset(matrix, 0, MATRIX_ROWS * sizeof(matrix_row_t));
-    memset(matrix_debouncing, 0, MATRIX_ROWS * sizeof(matrix_row_t));
-
-    matrix_init_quantum();
+    memset(matrix, 0, MATRIX_ROWS);
+    memset(matrix_debouncing, 0, MATRIX_ROWS);
 }
 
 uint8_t matrix_scan(void)
@@ -104,7 +102,6 @@ uint8_t matrix_scan(void)
         }
         debouncing = false;
     }
-    matrix_scan_quantum();
     return 1;
 }
 

@@ -61,6 +61,4 @@ NKRO_ENABLE = yes		# USB Nkey Rollover - not yet supported in LUFA
 #EXTRALDFLAGS = -Wl,--relax
 
 CUSTOM_MATRIX = yes
-SRC +=	matrix.c \
-		actuation_point.c \
-		i2c.c
+SRC += matrix.c

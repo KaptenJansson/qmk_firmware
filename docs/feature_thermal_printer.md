@@ -4,7 +4,7 @@
 
 ## Thermal Printer Keycodes
 
-|Key        |Description                             |
-|-----------|----------------------------------------|
-|`PRINT_ON` |Start printing everything the user types|
-|`PRINT_OFF`|Stop printing everything the user types |
+|Name|Description|
+|----|-----------|
+|`PRINT_ON`|Start printing everything the user types|
+|`PRINT_OFF`|Stop printing everything the user types|

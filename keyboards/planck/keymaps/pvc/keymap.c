@@ -1,4 +1,3 @@
-#pragma message "You may need to add LAYOUT_planck_grid to your keymap layers - see default for an example"
 #include "planck.h"
 #include "action_layer.h"
 #include "eeconfig.h"
@@ -317,36 +316,28 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
         case MACRO_BREATH_TOGGLE:
             if (record->event.pressed)
             {
-              #ifdef BACKLIGHT_BREATHING
                 breathing_toggle();
-              #endif
             }
             break;
 
         case MACRO_BREATH_SPEED_INC:
             if (record->event.pressed)
             {
-              #ifdef BACKLIGHT_BREATHING
-                breathing_period_inc();
-              #endif
+                breathing_speed_inc(1);
             }
             break;
 
         case MACRO_BREATH_SPEED_DEC:
             if (record->event.pressed)
             {
-              #ifdef BACKLIGHT_BREATHING
-                breathing_period_dec();
-              #endif
+                breathing_speed_dec(1);
             }
             break;
 
         case MACRO_BREATH_DEFAULT:
             if (record->event.pressed)
             {
-              #ifdef BACKLIGHT_BREATHING
-                breathing_period_default();
-              #endif
+                breathing_defaults();
             }
             break;
 
@@ -361,10 +352,8 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             if (record->event.pressed)
             {
                 layer_on(LAYER_UPPER);
-                #ifdef BACKLIGHT_BREATHING
-                  breathing_period_set(2);
-                  breathing_pulse();
-                #endif
+                breathing_speed_set(2);
+                breathing_pulse();
                 update_tri_layer(LAYER_LOWER, LAYER_UPPER, LAYER_ADJUST);
             }
             else
@@ -378,10 +367,8 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             if (record->event.pressed)
             {
                 layer_on(LAYER_LOWER);
-                #ifdef BACKLIGHT_BREATHING
-                  breathing_period_set(2);
-                  breathing_pulse();
-                #endif
+                breathing_speed_set(2);
+                breathing_pulse();
                 update_tri_layer(LAYER_LOWER, LAYER_UPPER, LAYER_ADJUST);
             }
             else
@@ -394,18 +381,14 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
         case MACRO_FUNCTION:
             if (record->event.pressed)
             {
-                #ifdef BACKLIGHT_BREATHING
-                  breathing_period_set(3);
-                  breathing_enable();
-                #endif
+                breathing_speed_set(3);
+                breathing_enable();
                 layer_on(LAYER_FUNCTION);
             }
             else
             {
-                #ifdef BACKLIGHT_BREATHING
-                  breathing_period_set(1);
-                  breathing_self_disable();
-                #endif
+                breathing_speed_set(1);
+                breathing_self_disable();
                 layer_off(LAYER_FUNCTION);
             }
             break;

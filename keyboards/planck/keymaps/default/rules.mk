@@ -1,1 +1,3 @@
-SRC += muse.c
+ifndef QUANTUM_DIR
+	include ../../../../Makefile
+endif

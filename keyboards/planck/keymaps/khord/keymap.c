@@ -1,4 +1,3 @@
-#pragma message "You may need to add LAYOUT_planck_grid to your keymap layers - see default for an example"
 #include "planck.h"
 #include "action_layer.h"
 
@@ -124,30 +123,22 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
   switch(id) {
     case MACRO_BREATH_TOGGLE:
       if (record->event.pressed) {
-        #ifdef BACKLIGHT_BREATHING
-          breathing_toggle();
-        #endif
+        breathing_toggle();
       }
       break;
     case MACRO_BREATH_SPEED_INC:
       if (record->event.pressed) {
-        #ifdef BACKLIGHT_BREATHING
-          breathing_period_inc();
-        #endif
+        breathing_speed_inc(1);
       }
       break;
     case MACRO_BREATH_SPEED_DEC:
       if (record->event.pressed) {
-        #ifdef BACKLIGHT_BREATHING
-          breathing_period_dec();
-        #endif
+        breathing_speed_dec(1);
       }
       break;
     case MACRO_BREATH_DEFAULT:
       if (record->event.pressed) {
-        #ifdef BACKLIGHT_BREATHING
-          breathing_period_default();
-        #endif
+        breathing_defaults();
       }
       break;
   }

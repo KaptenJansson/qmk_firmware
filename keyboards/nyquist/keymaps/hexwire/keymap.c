@@ -1,4 +1,6 @@
-#include QMK_KEYBOARD_H
+#include "nyquist.h"
+#include "action_layer.h"
+#include "eeconfig.h"
 
 extern keymap_config_t keymap_config;
 
@@ -34,11 +36,10 @@ enum custom_keycodes {
 #define KC_X2 RAISE
 #define KC_X3 LT(_FN3, KC_GRV)
 #define KC_X4 MT(MOD_LSFT, KC_ENT)
-#define KC_BL_S BL_STEP
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-  [_QWERTY] = LAYOUT_kc(
+  [_QWERTY] = KC_KEYMAP(
   //,----+----+----+----+----+----.    ,----+----+----+----+----+----.
      ESC , 1  , 2  , 3  , 4  , 5  ,      6  , 7  , 8  , 9  , 0  ,BSPC,
   //|----+----+----+----+----+----|    |----+----+----+----+----+----|
@@ -52,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //`----+----+----+----+----+----'    `----+----+----+----+----+----'
   ),
 
-  [_COLEMAK] = LAYOUT_kc(
+  [_COLEMAK] = KC_KEYMAP(
   //,----+----+----+----+----+----.    ,----+----+----+----+----+----.
      ESC , 1  , 2  , 3  , 4  , 5  ,      6  , 7  , 8  , 9  , 0  ,BSPC,
   //|----+----+----+----+----+----|    |----+----+----+----+----+----|
@@ -66,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //`----+----+----+----+----+----'    `----+----+----+----+----+----'
   ),
 
-  [_DVORAK] = LAYOUT_kc(
+  [_DVORAK] = KC_KEYMAP(
   //,----+----+----+----+----+----.    ,----+----+----+----+----+----.
      ESC , 1  , 2  , 3  , 4  , 5  ,      6  , 7  , 8  , 9  , 0  ,BSPC,
   //|----+----+----+----+----+----|    |----+----+----+----+----+----|
@@ -80,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //`----+----+----+----+----+----'    `----+----+----+----+----+----'
   ),
 
-  [_LOWER] = LAYOUT_kc(
+  [_LOWER] = KC_KEYMAP(
   //,----+----+----+----+----+----.    ,----+----+----+----+----+----.
      TILD,EXLM, AT ,HASH,DLR ,PERC,     CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
   //|----+----+----+----+----+----|    |----+----+----+----+----+----|
@@ -90,11 +91,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|    |----+----+----+----+----+----|
          ,CPYP,    ,    ,DOWN,LCBR,     RCBR, P1 , P2 , P3 ,MINS,    ,
   //|----+----+----+----+----+----|    |----+----+----+----+----+----|
-     BL_S,    ,    ,    ,    ,    ,     DEL ,    , P0 ,PDOT,    ,
+         ,    ,    ,    ,    ,    ,     DEL ,    , P0 ,PDOT,    ,
   //`----+----+----+----+----+----'    `----+----+----+----+----+----'
   ),
 
-  [_RAISE] = LAYOUT_kc(
+  [_RAISE] = KC_KEYMAP(
   //,----+----+----+----+----+----.    ,----+----+----+----+----+----.
      TILD,EXLM, AT ,HASH,DLR ,PERC,     CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
   //|----+----+----+----+----+----|    |----+----+----+----+----+----|
@@ -108,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //`----+----+----+----+----+----'    `----+----+----+----+----+----'
   ),
 
-  [_FN3] = LAYOUT_kc(
+  [_FN3] = KC_KEYMAP(
   //,----+----+----+----+----+----.    ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,      F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|    |----+----+----+----+----+----|
@@ -133,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |             |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
-  [_ADJUST] = LAYOUT( \
+  [_ADJUST] = KEYMAP( \
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
     _______, RESET  , RGB_TOG, RGB_MOD, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, _______, _______, \
     _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______, \

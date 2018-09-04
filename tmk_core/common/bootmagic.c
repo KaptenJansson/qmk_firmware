@@ -12,10 +12,6 @@
 
 keymap_config_t keymap_config;
 
-/** \brief Bootmagic
- *
- * FIXME: needs doc
- */
 void bootmagic(void)
 {
     /* check signature */
@@ -106,10 +102,6 @@ void bootmagic(void)
     }
 }
 
-/** \brief Scan Keycode
- *
- * FIXME: needs doc
- */
 static bool scan_keycode(uint8_t keycode)
 {
     for (uint8_t r = 0; r < MATRIX_ROWS; r++) {
@@ -125,10 +117,6 @@ static bool scan_keycode(uint8_t keycode)
     return false;
 }
 
-/** \brief Bootmagic Scan Keycode
- *
- * FIXME: needs doc
- */
 bool bootmagic_scan_keycode(uint8_t keycode)
 {
     if (!scan_keycode(BOOTMAGIC_KEY_SALT)) return false;
